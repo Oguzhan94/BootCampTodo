@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -39,7 +38,7 @@ import com.example.bootcamptodo.presentation.theme.ToDoPendingColor
 @Composable
 fun AddToDoScreen(
     navController: NavController
-){
+) {
     val viewModel = hiltViewModel<AddToDoViewModel>()
     val todo = viewModel.toDo.collectAsStateWithLifecycle().value
     Scaffold(
@@ -58,10 +57,10 @@ fun AddToDoScreen(
                     .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                if (viewModel.isEditMode()){
+                if (viewModel.isEditMode()) {
                     Box(
                         modifier = Modifier.weight(1f)
-                    ){
+                    ) {
                         Text(
                             text = if (viewModel.isCompleted) "Done" else "Mark as done"
                         )
@@ -129,7 +128,7 @@ fun AddToDoScreen(
                 )
             ) {
                 Text(
-                text = if (viewModel.isEditMode()) "Update ToDo" else "Add ToDo"
+                    text = if (viewModel.isEditMode()) "Update ToDo" else "Add ToDo"
                 )
             }
             Spacer(Modifier.height(24.dp))
@@ -140,6 +139,6 @@ fun AddToDoScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewAddToDoScreen(){
+fun PreviewAddToDoScreen() {
     AddToDoScreen(rememberNavController())
 }

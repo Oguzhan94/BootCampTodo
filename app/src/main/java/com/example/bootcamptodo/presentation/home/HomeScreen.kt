@@ -33,17 +33,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.bootcamptodo.R
 import com.example.bootcamptodo.presentation.navigation.Screen
 import com.example.bootcamptodo.presentation.theme.ButtonColor
 import com.example.bootcamptodo.presentation.theme.ToDoCompletedColor
 import com.example.bootcamptodo.presentation.theme.ToDoPendingColor
-import com.example.bootcamptodo.R
 
 @Composable
 fun HomeScreen(
@@ -51,7 +50,7 @@ fun HomeScreen(
 ) {
     val viewModel = hiltViewModel<HomeViewModel>()
     val todos = viewModel.todos.collectAsStateWithLifecycle().value
-    val fabOnClick = remember { {  navController.navigate(Screen.AddToDo()) } }
+    val fabOnClick = remember { { navController.navigate(Screen.AddToDo()) } }
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
@@ -111,7 +110,7 @@ fun HomeScreen(
                                 modifier = Modifier.fillMaxWidth()
                             ) {
                                 Text(
-                                    text =  todos[index].title.uppercase(),
+                                    text = todos[index].title.uppercase(),
                                     color = Color.White,
                                     fontWeight = FontWeight.SemiBold,
                                     fontSize = 20.sp,

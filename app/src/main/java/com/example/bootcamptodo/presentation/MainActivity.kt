@@ -4,10 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.ui.Modifier
 import com.example.bootcamptodo.presentation.navigation.NavigationGraph
 import com.example.bootcamptodo.presentation.navigation.Screen
 import com.example.bootcamptodo.presentation.theme.MyappTheme
@@ -20,9 +16,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyappTheme {
-                    NavigationGraph(
-                        startDestination = Screen.Home
-                    )
+                NavigationGraph(
+                    startDestination = Screen.Home
+                )
             }
         }
     }

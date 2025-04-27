@@ -18,11 +18,11 @@ class DetailScreenViewModel @Inject constructor(
     private val getToDoByIdUseCase: GetToDoByIdUseCase,
     private val deleteToDoUseCase: DeleteToDoUseCase,
     savedStateHandle: SavedStateHandle
-) : ViewModel(){
+) : ViewModel() {
 
     private val id = savedStateHandle.get<Int>("id") ?: -1
     private val _toDo = MutableStateFlow<ToDo?>(null)
-    val toDo : StateFlow<ToDo?>
+    val toDo: StateFlow<ToDo?>
         get() = _toDo.asStateFlow()
 
 
@@ -40,11 +40,7 @@ class DetailScreenViewModel @Inject constructor(
         }
     }
 
-    fun isEditMode() : Boolean{
-        return id != -1
-    }
-
-     fun deleteToDo() {
+    fun deleteToDo() {
         viewModelScope.launch {
             _toDo.value?.let { deleteToDoUseCase(it) }
         }
