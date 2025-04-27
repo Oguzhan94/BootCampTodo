@@ -19,6 +19,8 @@ class TodoRepositoryImpl @Inject constructor(private val toDoDao: ToDoDao) : ToD
             }
     }
 
+    // flow yerine suspend kulanmak daha mantikli olabilir. burada bir akistan ziyade tek bir deger bekleriz.
+    // flow kullanimindan kaynakli null hatalarindan da kacilmis olur.
     override fun getToDoById(id: Int): Flow<ToDo> {
         return toDoDao.getToDoById(id)
             .map { it.toDomainOrNull() }

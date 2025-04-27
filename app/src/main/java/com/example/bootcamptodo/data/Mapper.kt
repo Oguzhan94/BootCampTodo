@@ -14,6 +14,9 @@ fun ToDoEntity?.toDomainOrNull(): ToDo? {
     }
 }
 
+// flow yerine suspend kulanmak daha mantikli olabilir. burada bir akistan ziyade tek bir deger bekleriz.
+// flow kullanimindan kaynakli null hatalarindan da kacilmis olur.
+
 fun ToDo.toEntity(): ToDoEntity {
     return ToDoEntity(
         id = id,
